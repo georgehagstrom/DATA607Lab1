@@ -1,0 +1,57 @@
+
+---
+title: "Lab 1: Airbnbs in NYC"
+format: html
+editor: visual
+---
+
+```{r}
+#| label: load-packages
+#| include: false
+
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## Airbnb in NYC (or your city)
+
+Airbnb is a startup company that has had a disruptive effect on the hotel, rental home, and 
+vacation industry throughout the world. The success of Airbnb has not come without controversies, with critics arguing that it Airbnb has negative impacts on housing and rental
+prices and also on the daily lives of people living in neighborhoods where Airbnb is popular.
+This controversy has been particularly intense in NYC, where the debate been Airbnb proponents
+and detractors eventually led to the city imposing strong regulations on the use of Airbnb.
+
+Because Airbnb listings are available online through their website and app, it is possible
+for us to acquire and visualize the impacts of Airbnb on different cities, including 
+New York City. This is possible through the work of an organization called 
+[inside airbnb](https://insideairbnb.com/get-the-data/)
+
+## First Steps
+
+Before we introduce the data and the main assignment, let's begin with a few key 
+steps to configure the file and create a github repository for your first assignment.
+
+-   Update the YAML, changing the author name to your name, and **knit** the document.
+-   Commit your changes with a meaningful commit message.
+-   Push your changes to GitHub.
+-   Go to your repo on GitHub and confirm that your changes are visible in your Qmd **and** md files. If anything is missing, commit and push again.
+
+
+
+```{r}
+#| label: plot-penguins
+#| warning: false
+#| echo: false
+
+ggplot(penguins, 
+       aes(x = flipper_length_mm, y = bill_length_mm)) +
+  geom_point(aes(color = species, shape = species)) +
+  scale_color_manual(values = c("darkorange","purple","cyan4")) +
+  labs(
+    title = "Flipper and bill length",
+    subtitle = "Dimensions for penguins at Palmer Station LTER",
+    x = "Flipper length (mm)", y = "Bill length (mm)",
+    color = "Penguin species", shape = "Penguin species"
+  ) +
+  theme_minimal()
+```
